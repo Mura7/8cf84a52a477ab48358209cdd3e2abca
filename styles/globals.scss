@@ -1,6 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'responsive';
 @import 'colors';
 @import 'layout';
 @import 'navbar';
+@import 'home';
 
 html,
 body {

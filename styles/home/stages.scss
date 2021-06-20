@@ -1,0 +1,90 @@
+$icon-height: 80px;
+$item-padding: 20px;
+$line-top: $icon-height / 2 + $item-padding;
+
+$mobile-icon-height: 60px;
+$mobile-item-padding: 10px;
+$mobile-line-top: $mobile-icon-height / 2 + $mobile-item-padding;
+
+.stageContainer {
+  background-color: $color-backgroundGray;
+  margin: 15px 0;
+  padding: $item-padding;
+  border-radius: 5px;
+  position: relative;
+
+  @media screen and (max-width: $mobile) {
+    padding: $mobile-item-padding;
+  }
+
+  .stageItemsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &:before {
+      height: 3px;
+      top: $line-top;
+      bottom: auto;
+      left: 15%;
+      right: 0;
+      width: 71%;
+      margin-bottom: 20px;
+      position: absolute;
+      content: ' ';
+      background-color: #e3e3e3;
+      @media screen and (max-width: $mobile) {
+        top: $mobile-line-top;
+      }
+    }
+
+    .stageItem {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      z-index: 100;
+
+      .iconWrapper {
+        height: $icon-height;
+        width: $icon-height;
+        border-radius: $icon-height / 2;
+        padding: 15px;
+        background-color: $color-white;
+        @media screen and (max-width: $mobile) {
+          height: $mobile-icon-height;
+          width: $mobile-icon-height;
+        }
+        .icon {
+          color: $color-gray;
+          &.active {
+            color: $color-black;
+          }
+        }
+      }
+
+      .stageText {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: $color-gray;
+        text-align: center;
+        max-width: 50%;
+
+        @media screen and (max-width: $mobile) {
+          font-size: 0.8rem;
+        }
+
+        &.active {
+          color: $color-black;
+        }
+      }
+    }
+
+    .stageLine {
+      flex: 1;
+      height: 3px;
+      background-color: #e4e4e4;
+    }
+  }
+}

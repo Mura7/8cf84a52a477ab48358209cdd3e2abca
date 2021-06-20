@@ -2,6 +2,7 @@ import { setData } from '../redux/actions/dataActions';
 import { connect } from 'react-redux';
 import Head from 'next/head';
 import Layout from '../src/components/app/layout';
+import Stages from '../src/components/home/stages';
 
 const Index = props => {
   return (
@@ -11,6 +12,7 @@ const Index = props => {
         <meta name='description' content='Otel Rezervasyon Sistemi' />
       </Head>
       <div>
+        <Stages />
         Card Name: {props?.data?.card_name}
         <br />
         <button
