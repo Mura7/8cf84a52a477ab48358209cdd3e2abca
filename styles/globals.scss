@@ -29,7 +29,7 @@ body {
     &:disabled {
       background: $color-backgroundGray;
     }
-    -webkit-appearance:none;
+    -webkit-appearance: none;
   }
 }
 
@@ -47,7 +47,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 15px;
+  margin: 15px 0;
   border-radius: 5px;
   padding: 30px;
   &.end {
@@ -67,4 +67,10 @@ a {
     background-color: $color-white;
     color: $color-primary;
   }
+}
+
+.validation {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: $color-validation;
 }

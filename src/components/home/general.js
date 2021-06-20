@@ -28,7 +28,9 @@ const General = props => {
     const res = await fetch('https://5f6d939160cf97001641b049.mockapi.io/tkn/hotel-details');
     const data = await res.json();
     const detail = data.filter(e => +e?.hotel_id === +id);
-    dispatch(setDetail(detail[0]));
+    const hotel = hotels.filter(e => +e?.id === +id);
+
+    dispatch(setDetail({ ...detail[0], hotel_name: hotel[0].hotel_name }));
   };
 
   const selectHotel = event => {
@@ -130,7 +132,7 @@ const General = props => {
           </div>
         </div>
       </div>
-      <Footer showBack={false}  nextButtonClick={() => props?.nextStage('selectRoom')}/>
+      <Footer showBack={false} nextButtonClick={() => props?.nextStage('selectRoom')} />
     </div>
   );
 };

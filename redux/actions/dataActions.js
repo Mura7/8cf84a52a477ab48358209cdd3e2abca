@@ -14,7 +14,6 @@ export const setDetail = payload => ({
   payload
 });
 
-
 export const setForm = payload => ({
   type: SET_FORM,
   payload

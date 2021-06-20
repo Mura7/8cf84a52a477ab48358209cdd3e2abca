@@ -1,0 +1,104 @@
+.roomContainer {
+  background-color: $color-backgroundGray;
+  margin-top: 15px;
+  border-radius: 5px;
+  padding: 30px;
+
+  .hotelName {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+
+    .city {
+      font-size: 1rem;
+      color: $color-textGray;
+      padding-left: 5px;
+    }
+  }
+
+  .detail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    @media screen and (max-width: $mobile) {
+      flex-direction: column;
+    }
+
+    .label {
+      margin-bottom: 0;
+    }
+
+    .text {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: $color-textGray;
+      padding: 0 5px;
+    }
+  }
+}
+
+.imageRadioContainer {
+  margin-top: 20px;
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 7px;
+    border-bottom: 1px solid $color-border;
+  }
+  .imageRadioContent {
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0;
+
+    .item {
+      flex: 1;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin-right: 15px;
+
+      &.active {
+        border-width: 2px;
+        border-color: $color-active;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      .itemTitle {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .itemFooter {
+        margin-top: 5px;
+        display: flex;
+        flex-direction: row;
+        div:first-child {
+          flex: 1;
+        }
+
+        &.center {
+          align-items: center;
+        }
+
+        .itemFooterText {
+          font-size: 1.1rem;
+        }
+        .itemPrice {
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
