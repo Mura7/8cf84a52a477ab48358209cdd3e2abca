@@ -6,18 +6,18 @@ const Stages = ({ stage = '' }) => {
       <div className='stageItemsContainer'>
         <div className='stageItem'>
           <div className='iconWrapper'>
-            <CalendarIcon className={`icon ${stage === 'general' ? 'active' : ''}`} />
+            <CalendarIcon className={`icon ${stage === 'selectHotel' ? 'active' : ''}`} />
           </div>
-          <div className={`stageText ${stage === 'general' ? 'active' : ''}`}>
+          <div className={`stageText ${stage === 'selectHotel' ? 'active' : ''}`}>
             Otel ve Tarih Seçimi
           </div>
         </div>
 
         <div className='stageItem'>
           <div className='iconWrapper'>
-            <HomeIcon className={`icon ${stage === 'room' ? 'active' : ''}`} />
+            <HomeIcon className={`icon ${stage === 'selectRoom' ? 'active' : ''}`} />
           </div>
-          <div className={`stageText ${stage === 'room' ? 'active' : ''}`}>
+          <div className={`stageText ${stage === 'selectRoom' ? 'active' : ''}`}>
             Oda Tipi ve Manzara Seçimi
           </div>
         </div>

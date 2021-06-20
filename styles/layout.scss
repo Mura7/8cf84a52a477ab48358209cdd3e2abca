@@ -2,4 +2,9 @@
   background-color: $color-white;
   width: 100vw;
   height: 100vh;
+  .mobile {
+    @media screen and (max-width: $mobile) {
+      max-width: 100%;
+    }
+  }
 }

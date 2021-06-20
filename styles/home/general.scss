@@ -1,0 +1,56 @@
+.generalContainer {
+  background-color: $color-white;
+  border: 1px solid $color-border;
+  border-radius: 5px;
+  padding: 30px;
+
+  .searchContainer {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid $color-black;
+    border-radius: 5px;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 5px;
+
+    select {
+      border: none;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .searchIcon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .selectOtel {
+      padding: 5px;
+      flex: 1;
+    }
+  }
+
+  .formContainer {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid $color-border;
+    border-left: none;
+
+    @media screen and (max-width: $mobile) {
+      flex-direction: column;
+    }
+
+    .formItem {
+      flex: 1;
+      padding: 15px;
+      border-left: 1px solid $color-border;
+
+      .warning {
+        margin-top: 5px;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
