@@ -1,0 +1,36 @@
+@mixin text {
+  color: $color-white;
+  font-size: 1rem;
+}
+
+.navbar {
+  background-color: $color-primary;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px 30px;
+
+  .navbarTitleContainer {
+    flex: 1;
+
+    .navbarTitle {
+      @include text;
+      font-size: 1.5rem;
+    }
+
+    .navbarSubTitle {
+      @include text;
+    }
+  }
+
+  .navbarButton {
+    padding: 10px;
+    background-color: $color-white;
+    border-color: $color-white;
+    border-radius: 5px;
+    font-size: 1rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
