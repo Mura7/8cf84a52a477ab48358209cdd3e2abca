@@ -1,0 +1,81 @@
+.paymentContent {
+  display: flex;
+  flex-direction: row;
+
+  .cardContainer {
+    flex: 1.5;
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid $color-border;
+
+    .cardWrapper {
+      background-color: $color-backgroundGray;
+      border-radius: 10px;
+      padding: 15px;
+
+      .cardTitle {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      .cardNumber {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-top: 15px;
+      }
+
+      .cardName {
+        font-size: 1.2rem;
+        color: $color-textGray;
+        text-transform: uppercase;
+      }
+
+      .cardDate {
+        font-size: 1rem;
+        color: $color-textGray;
+      }
+    }
+
+    .formContainer {
+      padding: 15px;
+      padding-top: 30px;
+      border: 1px solid $color-border;
+      position: relative;
+      margin-top: 30px;
+
+      .formItem {
+        margin-top: 15px;
+      }
+
+      .formTitle {
+        position: absolute;
+        font-size: 1.2rem;
+        font-weight: bold;
+        top: -11px;
+        background-color: $color-white;
+      }
+
+      .row {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+      }
+    }
+  }
+
+  .summaryContainer {
+    flex: 1;
+  }
+}
+
+.dateContainer {
+    display: flex;
+    flex-direction: row;
+    
+    .formItem {
+       flex: 1;
+       margin-right: 10px; 
+       margin-top: 5px !important;
+    }
+}

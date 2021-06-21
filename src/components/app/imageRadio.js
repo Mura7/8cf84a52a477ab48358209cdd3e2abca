@@ -1,5 +1,6 @@
 const parseDate = str => {
-  const mdy = str.split('-');
+  const mdy = str?.split('-');
+  if(!mdy?.length) return 0
   return new Date(mdy[0], mdy[1] - 1, mdy[2]);
 };
 
