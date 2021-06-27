@@ -87,7 +87,7 @@ const Summary = props => {
           </div>
           <div className='priceItem'>
             <div className='priceLabel'>Fiyat Etki Oranı</div>
-            <div className='priceText'>{data?.room_scenic?.price_rate}</div>
+            <div className='priceText'>{`%${data?.room_scenic?.price_rate}`}</div>
           </div>
           <div className='priceItem'>
             <div className='priceLabel'>

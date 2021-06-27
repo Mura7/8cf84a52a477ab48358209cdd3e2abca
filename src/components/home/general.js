@@ -3,6 +3,13 @@ import { setDetail } from '../../../redux/actions/dataActions';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchIcon } from '@heroicons/react/outline';
 import Footer from './footer';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { registerLocale, setDefaultLocale } from 'react-datepicker';
+import tr from 'date-fns/locale/tr';
+import { format } from 'date-fns';
+registerLocale('tr', tr);
+setDefaultLocale('tr');
 
 const General = props => {
   const detail = useSelector(state => state?.data?.detail);
@@ -41,8 +48,8 @@ const General = props => {
     getHotelDetail(id);
   };
 
-  const setForm = (key, event) => {
-    props?.setFormData({ [key]: event?.target?.value });
+  const setForm = (key, value) => {
+    props?.setFormData({ [key]: value });
   };
 
   const selectOptions = (key = 'adult') => {
@@ -72,6 +79,17 @@ const General = props => {
     props?.nextStage();
   };
 
+  const getDateValue = (key = 'start') => {
+    if (key === 'start') {
+      if (form?.start_date) {
+        return new Date(form?.start_date);
+      }
+    } else if (form?.end_date) {
+      return new Date(form?.end_date);
+    }
+    return new Date();
+  };
+
   return (
     <div>
       <div className='generalContainer'>
@@ -80,7 +98,7 @@ const General = props => {
             <SearchIcon />
           </div>
           <select
-            onChange={event => selectHotel(event)}
+            onChange={event => selectHotel(event?.target?.value)}
             className='selectOtel'
             name='hotels'
             id='hotels'
@@ -100,30 +118,28 @@ const General = props => {
         <div className='formContainer'>
           <div className='formItem'>
             <div className='label'>Giriş Tarihi</div>
-            <input
-              type='date'
-              id='start_date'
-              name='start_date'
-              value={form?.start_date}
-              onChange={event => setForm('start_date', event)}
+            <DatePicker
+              locale='tr'
+              dateFormat='PPP'
+              selected={getDateValue()}
+              onChange={date => setForm('start_date', format(date, 'yyyy-MM-dd'))}
             />
             {validation && !form?.start_date && <div className='validation'>Zorunlu Alan</div>}
           </div>
           <div className='formItem'>
             <div className='label'>Çıkış Tarihi</div>
-            <input
-              type='date'
-              id='end_date'
-              name='end_date'
-              value={form?.end_date}
-              onChange={event => setForm('end_date', event)}
+            <DatePicker
+              locale='tr'
+              dateFormat='PPP'
+              selected={getDateValue('end')}
+              onChange={date => setForm('end_date', format(date, 'yyyy-MM-dd'))}
             />
             {validation && !form?.end_date && <div className='validation'>Zorunlu Alan</div>}
           </div>
           <div className='formItem'>
             <div className='label'>Yetişkin Sayısı</div>
             <select
-              onChange={event => setForm('adult', event)}
+              onChange={event => setForm('adult', event?.target?.value)}
               name='adult'
               id='adult'
               value={form?.adult}
@@ -137,7 +153,7 @@ const General = props => {
           <div className='formItem'>
             <div className='label'>Çoçuk Sayısı</div>
             <select
-              onChange={event => setForm('child', event)}
+              onChange={event => setForm('child', event?.target?.value)}
               name='child'
               id='child'
               disabled={!detail?.child_status}
