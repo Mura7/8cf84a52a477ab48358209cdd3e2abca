@@ -1,0 +1,119 @@
+.summaryContainer {
+  background-color: $color-backgroundGray;
+  border-radius: 10px;
+  padding: 15px;
+
+  .hotelName {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .city {
+      font-size: 1rem;
+      color: $color-textGray;
+      padding-left: 5px;
+    }
+  }
+
+  .summaryBadgeContainer {
+    display: flex;
+    flex-wrap: wrap;
+
+    .summaryBadge {
+      flex: 1 40%;
+      background-color: $color-white;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      margin-bottom: 10px;
+
+      &:nth-child(even) {
+        margin-left: 10px;
+      }
+
+      .summaryBadgeLabel {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      .summaryBadgeText {
+        font-size: 1rem;
+        padding-top: 5px;
+      }
+    }
+  }
+
+  .priceContainer {
+    background-color: $color-white;
+    margin-top: 15px;
+    border-radius: 10px;
+    padding-top: 15px;
+
+    .priceItem {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 0 15px;
+
+      .priceLabel {
+        font-size: 1.2rem;
+        font-weight: bold;
+        flex: 1;
+
+        span {
+          font-weight: 300;
+          font-size: 1rem;
+          color: $color-textGray;
+          padding-left: 5px;
+        }
+      }
+
+      .priceText {
+        font-size: 1.2rem;
+      }
+    }
+
+    .totalPriceContainer {
+      border-top: 1px solid $color-border;
+      display: flex;
+      padding: 15px;
+      justify-content: center;
+      align-self: center;
+      flex-direction: column;
+
+      .totalPriceLabel {
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .totalPrice {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.couponCodeContainer {
+  display: flex;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: $color-white;
+
+  .couponInputContainer {
+    padding-right: 10px;
+    flex: 1;
+
+    .formItem > .validation {
+      position: absolute;
+      font-size: 1rem;
+    }
+  }
+}

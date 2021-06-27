@@ -1,12 +1,6 @@
-const parseDate = str => {
-  const mdy = str?.split('-');
-  if(!mdy?.length) return 0
-  return new Date(mdy[0], mdy[1] - 1, mdy[2]);
-};
-
-const datediff = (first, second) => {
-  return Math.round((second - first) / (1000 * 60 * 60 * 24));
-};
+import Image from 'next/image';
+import getDay from '../../../utils/getDay';
+import getPriceWithFormat from '../../../utils/getPriceWithFormat';
 
 const imageRadio = ({
   data = [],
@@ -17,15 +11,10 @@ const imageRadio = ({
   validation = false
 }) => {
   const roomFooter = price => {
-    const day = datediff(parseDate(formData?.start_date), parseDate(formData?.end_date));
+    const day = getDay(formData?.start_date, formData?.end_date);
     const total_price = price * day * +formData?.adult;
-    let turkish = Intl.NumberFormat('tr-TR', {
-      style: 'currency',
-      currency: 'TRY',
-      minimumFractionDigits: 0
-    });
 
-    const priceText = turkish.format(total_price);
+    const priceText = getPriceWithFormat(total_price);
     return (
       <div className='itemFooter'>
         <div>
@@ -60,7 +49,9 @@ const imageRadio = ({
               className={`item ${+selectedValue === +id ? 'active' : ''}`}
             >
               <div className='itemTitle'>{title}</div>
-              <img className='itemImage' src={photo} />
+              <div className='itemImage'>
+                <Image src={photo} layout="fill" className='image'/>
+              </div>
               {!!price && roomFooter(price)}
               {!!price_rate && viewFooter(price_rate)}
             </div>

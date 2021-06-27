@@ -1,5 +1,3 @@
-import { CalendarIcon, HomeIcon, CreditCardIcon } from '@heroicons/react/outline';
-
 const Footer = ({ nextButtonClick = () => {}, backButtonClick = () => {}, showBack = true }) => {
   const myButton = (text, callback = () => {}) => {
     return (

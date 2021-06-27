@@ -2,16 +2,23 @@
   display: flex;
   flex-direction: row;
 
+  @media screen and (max-width: $mobile) {
+    flex-direction: column;
+  }
+
   .cardContainer {
-    flex: 1.5;
+    flex: 1.2;
     border-radius: 10px;
     padding: 15px;
     border: 1px solid $color-border;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .cardWrapper {
       background-color: $color-backgroundGray;
       border-radius: 10px;
-      padding: 15px;
+      padding: 30px 15px;
 
       .cardTitle {
         font-size: 2rem;
@@ -56,26 +63,31 @@
       }
 
       .row {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
       }
     }
   }
 
-  .summaryContainer {
+  .summaryPart {
     flex: 1;
+    padding-left: 15px;
+    @media screen and (max-width: $mobile) {
+      padding-left: 0;
+      margin-top: 15px;
+    }
   }
 }
 
 .dateContainer {
-    display: flex;
-    flex-direction: row;
-    
-    .formItem {
-       flex: 1;
-       margin-right: 10px; 
-       margin-top: 5px !important;
-    }
+  display: flex;
+  flex-direction: row;
+
+  .formItem {
+    flex: 1;
+    margin-right: 10px;
+    margin-top: 5px !important;
+  }
 }

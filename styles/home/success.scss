@@ -1,0 +1,88 @@
+.success {
+  margin: 15px 0;
+
+  .successContainer {
+    background-color: $color-white;
+    padding: 30px;
+    border: 1px solid $color-border;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 15px;
+
+    .successIconContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .successIcon {
+        width: 25%;
+        color: $color-active;
+      }
+    }
+
+    .successTitle {
+      font-size: 1.5rem;
+      font-weight: 'semi-bold';
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .successDescription {
+      font-size: 1rem;
+      margin-top: 15px;
+      text-align: center;
+      width: 70%;
+      align-self: center;
+    }
+
+    .buttonsContainer {
+      display: flex;
+      margin-top: 30px;
+
+      .buttonWrapper {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000070;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modalContent {
+    background-color: $color-white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+
+    .modalTitle {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    .modalButtonContainer {
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      .myButton {
+        flex-basis: 100px;
+      }
+    }
+  }
+}

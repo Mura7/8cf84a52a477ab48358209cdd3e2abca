@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { setForm } from '../redux/actions/dataActions';
+import { setForm, resetForm } from '../redux/actions/dataActions';
 import { connect } from 'react-redux';
 import Head from 'next/head';
 import Layout from '../src/components/app/layout';
@@ -7,12 +7,22 @@ import Stages from '../src/components/home/stages';
 import General from '../src/components/home/general';
 import Room from '../src/components/home/room';
 import Payment from '../src/components/home/payment';
+import Success from '../src/components/home/success';
 
 const Index = props => {
   const [stage, setStage] = useState('selectHotel');
-  
+
+  useEffect(() => {
+    const formData = localStorage.getItem('formData');
+    const data = JSON.parse(formData);
+    if (data) {
+      setFormData(data);
+    }
+  }, []);
+
   const setFormData = data => {
     const form = { ...props?.form_data, ...data };
+    localStorage.setItem('formData', JSON.stringify(form));
     props?.setForm(form);
   };
 
@@ -36,6 +46,8 @@ const Index = props => {
             nextStage={() => setStage('success')}
           />
         );
+      case 'success':
+        return <Success setFormData={setFormData} setForm={() => props?.setForm()} setStage={setStage} />;
     }
   };
 
@@ -46,7 +58,7 @@ const Index = props => {
         <meta name='description' content='Otel Rezervasyon Sistemi' />
       </Head>
       <div>
-        <Stages stage={stage} />
+        {stage !== 'success' && <Stages stage={stage} />}
         {renderStages()}
       </div>
     </Layout>
@@ -61,7 +73,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setForm: data => dispatch(setForm(data))
+    setForm: data => dispatch(setForm(data)),
+    resetForm: () => dispatch(resetForm())
   };
 };
 

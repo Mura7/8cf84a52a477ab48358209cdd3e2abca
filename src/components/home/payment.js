@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Footer from './footer';
+import Summary from './summary';
 
 const Payment = props => {
-  const detail = useSelector(state => state?.data?.detail);
   const form = useSelector(state => state?.data?.form);
   const [validation, setValidation] = useState(false);
 
@@ -37,7 +37,24 @@ const Payment = props => {
     ) {
       return setValidation(true);
     }
-    props?.nextStage();
+
+    const data = JSON.stringify(form);
+
+    let url = 'https://5f6d939160cf97001641b049.mockapi.io/tkn/hotel-bookings';
+    let method = 'POST';
+    if (!!form.id) {
+      url += `/${form.id}`;
+      method = 'PUT';
+    }
+    const requestOptions = {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      body: data
+    };
+    fetch(url, requestOptions)
+      .then(response => response.json())
+      .then(data => props?.setFormData(data))
+      .then(() => props?.nextStage());
   };
 
   return (
@@ -116,6 +133,7 @@ const Payment = props => {
                   id='card_cvv'
                   name='card_cvv'
                   value={form?.card_cvv}
+                  maxLength={3}
                   onChange={event => setForm('card_cvv', event)}
                 />
                 {!form?.card_cvv && validation && <div className='validation'>Zorunlu Alan</div>}
@@ -123,7 +141,9 @@ const Payment = props => {
             </div>
           </div>
         </div>
-        <div className='summaryContainer'></div>
+        <div className='summaryPart'>
+          <Summary {...props} show_coupon={true} />
+        </div>
       </div>
       <Footer backButtonClick={() => props?.backStage()} nextButtonClick={nextStage} />
     </div>
