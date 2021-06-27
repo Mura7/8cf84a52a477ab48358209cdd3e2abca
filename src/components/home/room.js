@@ -28,14 +28,18 @@ const Room = props => {
           <span className='city'>({detail?.city})</span>
         </div>
         <div className='detail'>
-          <span className='label'>Giriş Tarihi: </span>
-          <span className='text'>{form?.start_date}</span>
-          <span className='label'>Çıkış Tarihi: -</span>
-          <span className='text'>{form?.end_date}</span>
-          <span className='label'>Yetişkin: -</span>
-          <span className='text'>{form?.adult}</span>
-          <span className='label'>Çoçuk: -</span>
-          <span className='text'>{form?.child || 0}</span>
+          <span className='label'>
+            Giriş Tarihi:<span className='text'>{form?.start_date}</span>
+          </span>
+          <span className='label'>
+            Çıkış Tarihi:<span className='text'>{form?.end_date}</span>
+          </span>
+          <span className='label'>
+            Yetişkin:<span className='text'>{form?.adult}</span>
+          </span>
+          <span className='label'>
+            Çoçuk: <span className='text'>{form?.child || 0}</span>
+          </span>
         </div>
       </div>
       <ImageRadio
